@@ -1,0 +1,18 @@
+prompts:
+  - '{{question}}'
+
+providers:
+  - id: 'tds-api'
+    config:
+      url: 'https://your-api-url.com/api/'
+      method: POST
+      headers:
+        Content-Type: application/json
+      body: '{"question": "{{question}}"}'
+
+tests:
+  - vars:
+      question: "Calculate token cost for: 私は本を読みます"
+    assert:
+      - type: contains
+        value: "0.0017"
