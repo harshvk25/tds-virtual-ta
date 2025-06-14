@@ -26,7 +26,7 @@ async def answer_question(request: QuestionRequest):
             text = wrapped_match.group(0)
         else:
             # Case 2: Standalone Japanese text
-            if re.search(r"[\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FAF]", request.question):
+            if re.search(r"[\u3040-\u30FF\u4E00-\u9FFF]+。", request.question):
                 text = request.question
         
         if not text:
